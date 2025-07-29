@@ -75,10 +75,15 @@ export default function Home() {
           <input
             type="text"
             placeholder="Enter your task here"
-            className="border border-gray-700 dark:border-white p-2 bg-transparent text-black dark:text-white"
+            className="border border-gray-700 dark:border-white p-2 bg-transparent text-black dark:text-white outline-none"
             value={newTask}
             onChange={(e) => {
               setNewTask(e.target.value);
+            }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                addTask();
+              }
             }}
           ></input>
           <button
